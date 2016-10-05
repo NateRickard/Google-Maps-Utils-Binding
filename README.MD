@@ -5,7 +5,7 @@ This is a set of Xamarin bindings for the [Utility Library for Google Maps SDK f
 
 ## Building
 
-To build, run `make` in the `extern` directory. Then open `bindings/ios/Mixpanel/Mixpanel.sln` in Xamarin Studio and build.
+To build, run `make` in the `extern` directory. Then open `GoogleMapsUtils.sln` in Xamarin Studio and build.
 
 ## Using
 
