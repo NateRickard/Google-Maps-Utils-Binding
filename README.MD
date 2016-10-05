@@ -1,4 +1,4 @@
-﻿## Google Map Utils Binding
+﻿## Google Maps Utils Binding
 
 This is a set of Xamarin bindings for the [Utility Library for Google Maps SDK for iOS][0] (google-maps-ios-utils CocoaPod).
 
