@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="packages.config" />
-    <BundleResource Include="README.MD" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="extern\" />
@@ -54,7 +53,6 @@
   <ItemGroup>
     <None Include="extern\Makefile" />
     <None Include="extern\GoogleMapsUtils.xcscheme" />
-    <None Include="LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <NativeReference Include="extern\libGoogleMapsUtils.a">
