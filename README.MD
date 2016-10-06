@@ -62,6 +62,7 @@ Implement `IGMUClusterManagerDelegate` in your ViewController in order to receiv
 * Xamarin Studio 6.0+
 * Xcode 7+ with Xcode command line build tools installed
 * CocoaPods gem installed/configured
+* A public key created and added to your Github account - [instructions](https://help.github.com/articles/generating-an-ssh-key/)
 * To use the library, you'll need a Google Maps API key
 
 
