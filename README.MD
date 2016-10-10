@@ -43,7 +43,7 @@ public override void ViewDidLoad ()
 
 		var name = $"Item {i}";
 
-		var item = new POIItem (new CLLocationCoordinate2D (lat, lng), name);
+		var item = new POIItem (lat, lng, name);
 
 		clusterManager.AddItem (item);
 	}
