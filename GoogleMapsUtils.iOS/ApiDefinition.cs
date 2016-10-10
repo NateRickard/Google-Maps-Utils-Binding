@@ -368,21 +368,4 @@ namespace GMCluster
 		[Export ("didTapCluster:")]
 		void DidTapCluster (NSObject cluster);
 	}
-
-	// @interface POIItem : NSObject <GMUClusterItem>
-	[BaseType (typeof (NSObject))]
-	interface POIItem : GMUClusterItem
-	{
-		// @property (readonly, nonatomic) CLLocationCoordinate2D position;
-		[Export ("position")]
-		CLLocationCoordinate2D Position { get; }
-
-		// @property (readonly, nonatomic) NSString * name;
-		[Export ("name")]
-		string Name { get; }
-
-		// -(instancetype)initWithPosition:(CLLocationCoordinate2D)position name:(NSString *)name;
-		[Export ("initWithPosition:name:")]
-		IntPtr Constructor (CLLocationCoordinate2D position, string name);
-	}
 }
