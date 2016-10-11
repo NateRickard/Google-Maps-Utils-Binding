@@ -201,6 +201,14 @@ namespace GMCluster
 		[Export ("zIndex")]
 		int ZIndex { get; set; }
 
+		[Wrap ("WeakDelegate")]
+		[NullAllowed]
+		GMUClusterRendererDelegate Delegate { get; set; }
+
+		// @property(nonatomic, nullable, weak) id<GMUClusterRendererDelegate> delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		NSObject WeakDelegate { get; set; }
+
 		// -(instancetype _Nonnull)initWithMapView:(GMSMapView * _Nonnull)mapView clusterIconGenerator:(id<GMUClusterIconGenerator> _Nonnull)iconGenerator;
 		[Export ("initWithMapView:clusterIconGenerator:")]
 		IntPtr Constructor (MapView mapView, IGMUClusterIconGenerator iconGenerator);
@@ -209,6 +217,26 @@ namespace GMCluster
 		[Export ("shouldRenderAsCluster:atZoom:")]
 		bool ShouldRenderAsCluster (IGMUCluster cluster, float zoom);
 	}
+
+	// @protocol GMUClusterRendererDelegate <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof (NSObject))]
+	interface GMUClusterRendererDelegate
+	{
+		// (GMSMarker *)renderer:(id<GMUClusterRenderer>)renderer markerForObject:(id)object;
+		[Export ("renderer:markerForObject:")]
+		Marker GetMarkerForObject (GMUClusterRenderer renderer, NSObject cluster);
+
+		// (void)renderer:(id<GMUClusterRenderer>)renderer willRenderMarker:(GMSMarker *)marker;
+		[Export ("renderer:willRenderMarker:")]
+		void WillRenderMarker (GMUClusterRenderer renderer, Marker marker);
+
+		// (void)renderer:(id<GMUClusterRenderer>)renderer didRenderMarker:(GMSMarker *)marker;
+		[Export ("renderer:didRenderMarker:")]
+		void DidRenderMarker (GMUClusterRenderer renderer, Marker marker);
+	}
+
+	interface IGMUClusterRendererDelegate { }
 
 	// @interface GMUGridBasedClusterAlgorithm : NSObject <GMUClusterAlgorithm>
 	[BaseType (typeof (NSObject))]

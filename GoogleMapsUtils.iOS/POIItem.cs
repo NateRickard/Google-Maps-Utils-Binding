@@ -10,22 +10,19 @@ namespace GMCluster
 	{
 		public POIItem (double latitude, double longitude, string name)
 		{
-			this.position = new CLLocationCoordinate2D (latitude, longitude);
+			Position = new CLLocationCoordinate2D (latitude, longitude);
 			Name = name;
 		}
 
 		public POIItem (CLLocationCoordinate2D position, string name)
 		{
-			this.position = position;
+			Position = position;
 			Name = name;
 		}
 
-		CLLocationCoordinate2D position;
-
 		public CLLocationCoordinate2D Position {
-			get {
-				return position;
-			}
+			get;
+			private set;
 		}
 
 		public string Name
