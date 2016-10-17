@@ -229,11 +229,11 @@ namespace GMCluster
 
 		// (void)renderer:(id<GMUClusterRenderer>)renderer willRenderMarker:(GMSMarker *)marker;
 		[Export ("renderer:willRenderMarker:")]
-		void WillRenderMarker (GMUClusterRenderer renderer, Marker marker);
+		void WillRenderMarker (GMUClusterRenderer renderer, Overlay marker);
 
 		// (void)renderer:(id<GMUClusterRenderer>)renderer didRenderMarker:(GMSMarker *)marker;
 		[Export ("renderer:didRenderMarker:")]
-		void DidRenderMarker (GMUClusterRenderer renderer, Marker marker);
+		void DidRenderMarker (GMUClusterRenderer renderer, Overlay marker);
 	}
 
 	interface IGMUClusterRendererDelegate { }
@@ -349,51 +349,5 @@ namespace GMCluster
 	[BaseType (typeof (NSObject))]
 	interface GMUNonHierarchicalDistanceBasedAlgorithm : GMUClusterAlgorithm
 	{
-	}
-
-	// @interface GMClusterHelper : NSObject
-	[BaseType (typeof (NSObject))]
-	interface GMClusterHelper
-	{
-		[Wrap ("WeakGmsHelperDelegate")]
-		GMClusterHelperDelegate GmsHelperDelegate { get; set; }
-
-		// @property (nonatomic, weak) id<GMClusterHelperDelegate> gmsHelperDelegate;
-		[NullAllowed, Export ("gmsHelperDelegate", ArgumentSemantic.Weak)]
-		NSObject WeakGmsHelperDelegate { get; set; }
-
-		// @property (assign, nonatomic) BOOL isGridBased;
-		[Export ("isGridBased")]
-		bool IsGridBased { get; set; }
-
-		// -(instancetype)initWith:(id)gMapView;
-		[Export ("initWith:")]
-		IntPtr Constructor (NSObject gMapView);
-
-		// -(void)configureClusteringWithItems:(NSArray *)items Bucket:(NSArray<NSNumber *> *)buckets clusterImages:(NSArray<UIImage *> *)images;
-		[Export ("configureClusteringWithItems:Bucket:clusterImages:")]
-		void ConfigureClusteringWithItems (NSObject [] items, NSNumber [] buckets, UIImage [] images);
-
-		// -(void)removeClusterManager;
-		[Export ("removeClusterManager")]
-		void RemoveClusterManager ();
-	}
-
-	// @protocol GMClusterHelperDelegate <NSObject>
-	[BaseType (typeof (NSObject))]
-	[Model]
-	public partial interface GMClusterHelperDelegate
-	{
-		// @optional -(void)didTapMarker:(id)marker;
-		[Export ("didTapMarker:")]
-		void DidTapMarker (NSObject marker);
-
-		// @optional -(void)didTapAtCoordinate:(id)coordinate;
-		[Export ("didTapAtCoordinate:")]
-		void DidTapAtCoordinate (NSObject coordinate);
-
-		// @optional -(void)didTapCluster:(id)cluster;
-		[Export ("didTapCluster:")]
-		void DidTapCluster (NSObject cluster);
 	}
 }

@@ -75,11 +75,15 @@ namespace iOSMapUtil
 		}
 
 		[Export ("renderer:willRenderMarker:")]
-		void WillRenderMarker (GMUClusterRenderer renderer, Marker marker)
+		public void WillRenderMarker (GMUClusterRenderer renderer, Overlay marker)
 		{
-			if (marker.UserData is POIItem) {
-				POIItem item = (POIItem)marker.UserData;
-				marker.Title = item.Name;
+			if (marker is Marker) { // Overlays sneaking in here disguised as Markers...
+				var myMarker = (Marker)marker;
+
+				if (myMarker.UserData is POIItem) {
+					POIItem item = (POIItem)myMarker.UserData;
+					myMarker.Title = item.Name;
+				}
 			}
 		}
 

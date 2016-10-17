@@ -58,8 +58,8 @@
   <ItemGroup>
     <NativeReference Include="extern\libGoogleMapsUtils.a">
       <Kind>Static</Kind>
+      <Frameworks></Frameworks>
       <ForceLoad>True</ForceLoad>
-      <Frameworks>CoreLocation</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
