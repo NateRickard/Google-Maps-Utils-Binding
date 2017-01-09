@@ -12,7 +12,7 @@ all: clean libGoogleMapsUtils.a
 
 Podfile.lock:
 	mkdir -p ios
-	cd ios && git clone git@github.com:googlemaps/google-maps-ios-utils.git
+	cd ios && git clone https://github.com/googlemaps/google-maps-ios-utils.git
 	cd ios/google-maps-ios-utils && git checkout $(IOS_GIT_BRANCH)
 	cd $(WORKSPACE_DIR) && pod install
 	mkdir -p $(WORKSPACE_DIR)/$(SCHEME_DIR) && cp $(SCHEME_FILE) $(WORKSPACE_DIR)/$(SCHEME_DIR)
